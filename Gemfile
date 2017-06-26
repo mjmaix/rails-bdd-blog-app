@@ -5,8 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.0.2'
+gem 'guard-rspec', require: false
+gem 'spring-commands-rspec'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'sqlite3'
