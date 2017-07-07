@@ -27,13 +27,21 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.new(article_params)
+    @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
       flash[:success] = 'Article has been updated'
       redirect_to articles_path
     else
       flash.now[:danger] = 'Article has not been updated'
       render :new
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      flash[:success] = 'Article has been deleted'
+      redirect_to articles_path
     end
   end
 
